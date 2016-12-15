@@ -37,4 +37,18 @@ public class ListaTareas
             indice = indice + 1;
         }
     }
+    
+    /**
+     * Método que marca una tarea como completada.
+     * Método a prueba de errores.
+     * numeroTarea es el número de la tarea empezando en 1.
+     */
+    
+    public void marcarComoCompletada(int numeroTarea)
+    {
+        if (numeroTarea > 0 && numeroTarea <= listaDeTareas.size())
+        {
+            listaDeTareas.get(numeroTarea - 1).marcarCompleta();
+        }
+    }
 }

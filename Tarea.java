@@ -19,4 +19,9 @@ public class Tarea
     {
         return terminada;
     }
+    
+    public void marcarCompleta()
+    {
+        terminada = true;
+    }
 }
