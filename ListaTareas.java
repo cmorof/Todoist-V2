@@ -51,4 +51,27 @@ public class ListaTareas
             listaDeTareas.get(numeroTarea - 1).marcarCompleta();
         }
     }
+    
+    /**
+     * Devuelve true o false si hay al menos una tarea que contiene el texto indicado
+     * como parámetro. -1 en caso contrario. NO MUESTRA NADA POR PANTALLA.
+     */
+    
+    public void mostrarTareasCoincidentes(String textoABuscar)
+    {
+        int indice = 1;
+        while (indice > 0 && indice <= listaDeTareas.size())
+        {
+            if (listaDeTareas.get(indice - 1).mostrarTarea().contains(textoABuscar))
+            {
+                String textoAMostrar = "";
+                if (listaDeTareas.get(indice - 1).verTerminada())
+                {
+                    textoAMostrar = "HECHO. ";
+                }
+                System.out.println(indice + ". " + textoAMostrar +listaDeTareas.get(indice - 1).mostrarTarea());
+            }
+            indice = indice +1;
+        }
+    }
 }
