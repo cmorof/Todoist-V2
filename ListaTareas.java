@@ -74,4 +74,16 @@ public class ListaTareas
             indice = indice +1;
         }
     }
+    
+    /**
+     * Método que permite eliminar la tarea que ocupa la posición indicada.
+     */
+    public void eliminarTarea(int posicionTarea)
+    {
+        int posicionReal = posicionTarea - 1;
+        if(posicionReal >= 0 && posicionReal < listaDeTareas.size())
+        {
+            listaDeTareas.remove(posicionReal);
+        }
+    }
 }
