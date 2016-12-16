@@ -28,12 +28,7 @@ public class ListaTareas
         int indice = 0;
         while (indice < listaDeTareas.size())
         {
-            String textoAMostrar = "";
-            if (listaDeTareas.get(indice).verTerminada())
-            {
-                textoAMostrar = "HECHO. ";
-            }
-            System.out.println((indice + 1) + ". " + textoAMostrar + listaDeTareas.get(indice).mostrarTarea());
+            System.out.println((indice + 1) + ". " + listaDeTareas.get(indice).toString() + listaDeTareas.get(indice).mostrarTarea());
             indice = indice + 1;
         }
     }
@@ -64,12 +59,7 @@ public class ListaTareas
         {
             if (listaDeTareas.get(indice - 1).mostrarTarea().contains(textoABuscar))
             {
-                String textoAMostrar = "";
-                if (listaDeTareas.get(indice - 1).verTerminada())
-                {
-                    textoAMostrar = "HECHO. ";
-                }
-                System.out.println(indice + ". " + textoAMostrar +listaDeTareas.get(indice - 1).mostrarTarea());
+                System.out.println(indice + ". " + listaDeTareas.get(indice-1).toString() + listaDeTareas.get(indice - 1).mostrarTarea());
             }
             indice = indice +1;
         }
