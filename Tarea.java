@@ -34,13 +34,10 @@ public class Tarea
         {
             textoADevolver += "HECHA ";
         }
-        textoADevolver += descripcion;
+        textoADevolver += descripcion + " (" + prioridad + ")";
         return textoADevolver;
     }
     
-     /**
-     * Método para establecer prioridad para una tarea del 0 al 5.
-     */
     public void establecerPrioridad(int numeroPrioridad)
     {
         if (numeroPrioridad >= 0 && numeroPrioridad <=5){

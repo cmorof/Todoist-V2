@@ -68,12 +68,29 @@ public class ListaTareas
     /**
      * Método que permite eliminar la tarea que ocupa la posición indicada.
      */
+    
     public void eliminarTarea(int posicionTarea)
     {
         int posicionReal = posicionTarea - 1;
         if(posicionReal >= 0 && posicionReal < listaDeTareas.size())
         {
             listaDeTareas.remove(posicionReal);
+        }
+    }
+    
+     /**
+     * Método para establecer prioridad para una tarea del 0 al 5.
+     */
+    
+    public void establecerNuevaPrioridad(int posicion, int prioridad)
+    {
+        int posicionReal = posicion - 1;
+        if (posicionReal >= 0 && posicionReal <= listaDeTareas.size())
+        {
+            if (prioridad >= 0 && prioridad <= 5)
+            {
+                listaDeTareas.get(posicionReal).establecerPrioridad(prioridad);
+            }
         }
     }
 }
