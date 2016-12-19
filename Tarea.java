@@ -1,15 +1,17 @@
-
+import java.time.LocalDate;
 public class Tarea
 {
     private String descripcion;
     private Boolean terminada;
     private int prioridad;
+    private LocalDate nuevaFechaVencimiento;
     
     public Tarea(String nombre)
     {
         descripcion = nombre;
         terminada = false;
         prioridad = 0;
+        nuevaFechaVencimiento = null;
     }
     
     public String mostrarTarea()
@@ -34,7 +36,15 @@ public class Tarea
         {
             textoADevolver += "HECHA ";
         }
-        textoADevolver += descripcion + " (" + prioridad + ")";
+        if (nuevaFechaVencimiento != null)
+        {
+            textoADevolver += descripcion + " (" + prioridad + ") " + "Fecha de vencimiento: [" + nuevaFechaVencimiento + "]";
+        }
+        else
+        {
+            textoADevolver += descripcion + " (" + prioridad + ") ";
+        }
+        
         return textoADevolver;
     }
     
@@ -43,5 +53,11 @@ public class Tarea
         if (numeroPrioridad >= 0 && numeroPrioridad <=5){
             prioridad = numeroPrioridad;
         }
+    }
+    
+    public void establecerFechaVencimiento(int anio, int mes, int dia)
+    {
+        LocalDate fechaVencimiento = LocalDate.of(anio,mes,dia);
+        nuevaFechaVencimiento = fechaVencimiento;
     }
 }

@@ -28,7 +28,7 @@ public class ListaTareas
         int indice = 0;
         while (indice < listaDeTareas.size())
         {
-            System.out.println((indice + 1) + ". " + listaDeTareas.get(indice).toString() + listaDeTareas.get(indice).mostrarTarea());
+            System.out.println((indice + 1) + ". " + listaDeTareas.get(indice).toString());
             indice = indice + 1;
         }
     }
@@ -91,6 +91,19 @@ public class ListaTareas
             {
                 listaDeTareas.get(posicionReal).establecerPrioridad(prioridad);
             }
+        }
+    }
+    
+    /**
+     * Método para establecer una fecha de vencimiento para cada tarea.
+     */
+    
+    public void establecerNuevaFechaVencimiento(int posicion, int anio, int mes, int dia)
+    {
+        int posicionReal = posicion - 1;
+        if (posicionReal >= 0 && posicionReal <= listaDeTareas.size())
+        {
+            listaDeTareas.get(posicionReal).establecerFechaVencimiento(anio, mes, dia);
         }
     }
 }
