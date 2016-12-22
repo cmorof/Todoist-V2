@@ -4,14 +4,14 @@ public class Tarea
     private String descripcion;
     private Boolean terminada;
     private int prioridad;
-    private LocalDate nuevaFechaVencimiento;
+    private LocalDate fechaVencimiento;
     
     public Tarea(String nombre)
     {
         descripcion = nombre;
         terminada = false;
         prioridad = 0;
-        nuevaFechaVencimiento = null;
+        fechaVencimiento = null;
     }
     
     public String mostrarTarea()
@@ -32,19 +32,24 @@ public class Tarea
     public String toString()
     {
         String textoADevolver = "";
+        String fechaADevolver = "";
         if (terminada)
         {
             textoADevolver += "HECHA ";
         }
-        if (nuevaFechaVencimiento != null)
+        if (fechaVencimiento != null)
         {
-            textoADevolver += descripcion + " (" + prioridad + ") " + "Fecha de vencimiento: [" + nuevaFechaVencimiento + "]";
+            int getDia = fechaVencimiento.getDayOfMonth();
+            int getMes = fechaVencimiento.getMonthValue();
+            int getAnio = fechaVencimiento.getYear();
+            
+            fechaADevolver = getDia + "-" + getMes + "-" + getAnio;
+            textoADevolver += descripcion + " (" + prioridad + ") " + "Fecha de vencimiento: [" + fechaADevolver + "]";
         }
         else
         {
             textoADevolver += descripcion + " (" + prioridad + ") ";
         }
-        
         return textoADevolver;
     }
     
@@ -57,7 +62,6 @@ public class Tarea
     
     public void establecerFechaVencimiento(int anio, int mes, int dia)
     {
-        LocalDate fechaVencimiento = LocalDate.of(anio,mes,dia);
-        nuevaFechaVencimiento = fechaVencimiento;
+        fechaVencimiento = LocalDate.of(anio,mes,dia);
     }
 }
