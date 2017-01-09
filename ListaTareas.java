@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 public class ListaTareas
 {
     private ArrayList <Tarea> listaDeTareas;
@@ -104,6 +105,22 @@ public class ListaTareas
         if (posicionReal >= 0 && posicionReal <= listaDeTareas.size())
         {
             listaDeTareas.get(posicionReal).establecerFechaVencimiento(anio, mes, dia);
+        }
+    }
+    
+    public void mostrarHoy()
+    {
+        int indice = 0;
+        LocalDate hoy = LocalDate.now();
+        while (indice < listaDeTareas.size())
+        {
+            if(listaDeTareas.get(indice).devolverFecha() != null){
+                if(listaDeTareas.get(indice).devolverFecha().isEqual(hoy))
+                {
+                    System.out.println((indice + 1) + ". " + listaDeTareas.get(indice).toString());
+                }
+            }
+            indice = indice + 1;
         }
     }
 }

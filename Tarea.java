@@ -64,4 +64,9 @@ public class Tarea
     {
         fechaVencimiento = LocalDate.of(anio,mes,dia);
     }
+    
+    public LocalDate devolverFecha()
+    {
+        return fechaVencimiento;
+    }
 }
