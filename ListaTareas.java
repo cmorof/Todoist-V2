@@ -131,7 +131,7 @@ public class ListaTareas
         for (Tarea tarea : listaDeTareas)
         {
             if(listaDeTareas.get(indice).devolverFecha() != null){
-                if(listaDeTareas.get(indice).devolverFecha().isEqual(hoy))
+                if(listaDeTareas.get(indice).devolverFecha().isBefore(hoy))
                 {
                     System.out.println((indice + 1) + ". " + listaDeTareas.get(indice).toString());
                 }
