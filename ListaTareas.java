@@ -123,4 +123,20 @@ public class ListaTareas
             indice = indice + 1;
         }
     }
-}
+    
+    public void mostrarVencidas()
+    {
+        int indice = 0;
+        LocalDate hoy = LocalDate.now();
+        for (Tarea tarea : listaDeTareas)
+        {
+            if(listaDeTareas.get(indice).devolverFecha() != null){
+                if(listaDeTareas.get(indice).devolverFecha().isEqual(hoy))
+                {
+                    System.out.println((indice + 1) + ". " + listaDeTareas.get(indice).toString());
+                }
+            }
+            indice++;
+        }
+    }
+    }
