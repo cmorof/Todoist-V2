@@ -1,13 +1,14 @@
-
 import java.util.ArrayList;
 import java.time.LocalDate;
 public class ListaTareas
 {
     private ArrayList <Tarea> listaDeTareas;
+    private int proximoID;
     
     public ListaTareas()
     {
         listaDeTareas = new ArrayList<Tarea>();
+        proximoID = 10;
     }
     
     /**
@@ -16,7 +17,8 @@ public class ListaTareas
     
     public void addTarea (String descripcion)
     {
-        Tarea nuevaTarea = new Tarea(descripcion);
+        Tarea nuevaTarea = new Tarea(descripcion, proximoID);
+        
         listaDeTareas.add(nuevaTarea);
     }
     
@@ -159,6 +161,22 @@ public class ListaTareas
                 System.out.println((indice + 1) + ". " + tareaActual.toString());
             }
             indice++;
+        }
+    }
+    
+    public void verTareaMasPrioritaria2()
+    {
+        if (listaDeTareas.size() > 0)
+        {
+            Tarea tareaMasPrioritaria = listaDeTareas.get(0);
+            for(Tarea tareaActual : listaDeTareas)
+            {
+                if (tareaActual.obtenerPrioridad() >= tareaMasPrioritaria.obtenerPrioridad())
+                {
+                    tareaMasPrioritaria = tareaActual;
+                }
+            }
+            System.out.println(tareaMasPrioritaria);
         }
     }
 }

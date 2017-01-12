@@ -4,13 +4,15 @@ public class Tarea
     private String descripcion;
     private Boolean terminada;
     private int prioridad;
+    private int id;
     private LocalDate fechaVencimiento;
     
-    public Tarea(String nombre)
+    public Tarea(String nombre, int id)
     {
         descripcion = nombre;
         terminada = false;
         prioridad = 0;
+        this.id = 0;
         fechaVencimiento = null;
     }
     
@@ -44,11 +46,11 @@ public class Tarea
             int getAnio = fechaVencimiento.getYear();
             
             fechaADevolver = getDia + "-" + getMes + "-" + getAnio;
-            textoADevolver += descripcion + " (" + prioridad + ") " + "Fecha de vencimiento: [" + fechaADevolver + "]";
+            textoADevolver += id + ". " + descripcion + " (" + prioridad + ") " + "Fecha de vencimiento: [" + fechaADevolver + "]";
         }
         else
         {
-            textoADevolver += descripcion + " (" + prioridad + ") ";
+            textoADevolver += id + ". " + " (" + prioridad + ") ";
         }
         return textoADevolver;
     }
@@ -73,5 +75,10 @@ public class Tarea
     public int obtenerPrioridad()
     {
         return prioridad;
+    }
+    
+    public int getID()
+    {
+        return id;
     }
 }
