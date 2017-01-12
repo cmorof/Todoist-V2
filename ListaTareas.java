@@ -139,4 +139,26 @@ public class ListaTareas
             indice++;
         }
     }
+    
+    public void verTareaMasPrioritaria()
+    {
+        int prioridadMasAlta = 0;
+        for (Tarea tarea : listaDeTareas)
+        {
+            if(prioridadMasAlta < tarea.obtenerPrioridad())
+            {
+                prioridadMasAlta = tarea.obtenerPrioridad();
+            }
+        }
+        int indice = 0;
+        while(indice < listaDeTareas.size())
+        {
+            Tarea tareaActual = listaDeTareas.get(indice);
+            if(tareaActual.obtenerPrioridad() == prioridadMasAlta)
+            {
+                System.out.println((indice + 1) + ". " + tareaActual.toString());
+            }
+            indice++;
+        }
     }
+}

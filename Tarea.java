@@ -69,4 +69,9 @@ public class Tarea
     {
         return fechaVencimiento;
     }
+    
+    public int obtenerPrioridad()
+    {
+        return prioridad;
+    }
 }
